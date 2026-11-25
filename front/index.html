@@ -4,10 +4,21 @@
     <meta charset="UTF-8">                                                   <!-- tildes y eñes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   <!-- se ve bien en el celular -->
     <title>Tareas del equipo</title>
+    <link rel="stylesheet" href="estilos.css">                                <!-- los estilos (Est3) -->
 </head>
 <body>
-    <h1>Tareas del equipo</h1>
-    <p id="estado">Conectando con la API...</p>   <!-- aqui app.js escribe si la API responde -->
+    <main>
+        <h1>Tareas del equipo</h1>
+        <p id="estado">Conectando con la API...</p>   <!-- aqui app.js escribe si la API responde -->
+
+        <!-- El formulario para crear una tarea (Est3) -->
+        <form id="formulario">
+            <input id="titulo" type="text" placeholder="¿Qué hay que hacer?" required>
+            <button type="submit">Agregar</button>
+        </form>
+
+        <ul id="lista"></ul>   <!-- aqui app.js pone las tareas -->
+    </main>
     <script src="app.js"></script>                  <!-- el JavaScript de la pagina -->
 </body>
 </html>

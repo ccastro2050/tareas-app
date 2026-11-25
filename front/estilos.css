@@ -1,0 +1,44 @@
+/* estilos.css: la apariencia de la pagina (Est3) */
+body {
+    font-family: system-ui, sans-serif;   /* la letra del sistema */
+    background: #f4f6f8;                   /* gris muy claro */
+    margin: 0;
+}
+main {
+    max-width: 560px;                      /* no se estira en pantallas grandes */
+    margin: 0 auto;                        /* centrado */
+    padding: 16px;
+}
+form {
+    display: flex;                         /* el cuadro de texto y el boton en una fila */
+    gap: 8px;
+}
+input {
+    flex: 1;                               /* el cuadro de texto ocupa el espacio que sobra */
+    padding: 8px;
+}
+button {
+    padding: 8px 12px;
+    cursor: pointer;                       /* la manito al pasar el mouse */
+}
+ul {
+    list-style: none;                      /* sin viñetas */
+    padding: 0;
+}
+li {
+    display: flex;                         /* el titulo y los botones en una fila */
+    gap: 8px;
+    align-items: center;
+    background: white;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 6px;
+}
+li span {
+    flex: 1;                               /* el titulo empuja los botones a la derecha */
+}
+li.hecha span {
+    text-decoration: line-through;         /* una tarea hecha sale tachada */
+    color: gray;
+}
+    
