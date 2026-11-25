@@ -34,6 +34,15 @@ app.post("/api/tareas", (req, res) => {
 
 // === Cada uno agrega su ruta aqui ===
 
+// DELETE /api/tareas/:id -> borra la tarea (Est3)
+app.delete("/api/tareas/:id", (req, res) => {
+    const resultado = bd.prepare("DELETE FROM tarea WHERE id = ?").run(req.params.id);
+    if (resultado.changes === 0) {                      // no borro nada: no existia
+        return res.status(404).json({ error: "La tarea no existe" });
+    }
+    res.status(204).end();                              // 204 = borrada, sin nada que devolver
+});
+
 // Pone la API a escuchar en el puerto. error = lo que fallo (por ejemplo, el puerto ocupado)
 app.listen(PUERTO, (error) => {
     if (error) {                                        // no pudo prender
