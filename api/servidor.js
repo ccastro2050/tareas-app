@@ -34,6 +34,16 @@ app.post("/api/tareas", (req, res) => {
 
 // === Cada uno agrega su ruta aqui ===
 
+// PUT /api/tareas/:id -> marca o desmarca la tarea como hecha (Est2)
+app.put("/api/tareas/:id", (req, res) => {
+    const tarea = bd.prepare("SELECT * FROM tarea WHERE id = ?").get(req.params.id);
+    if (!tarea) {                                       // no existe: 404
+        return res.status(404).json({ error: "La tarea no existe" });
+    }
+    bd.prepare("UPDATE tarea SET hecha = ? WHERE id = ?").run(tarea.hecha ? 0 : 1, tarea.id);
+    res.json(bd.prepare("SELECT * FROM tarea WHERE id = ?").get(tarea.id));   // 200 con la tarea
+});
+
 // Pone la API a escuchar en el puerto. error = lo que fallo (por ejemplo, el puerto ocupado)
 app.listen(PUERTO, (error) => {
     if (error) {                                        // no pudo prender
